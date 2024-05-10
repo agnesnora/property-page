@@ -35,7 +35,7 @@ const PropertyAddForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
+    //Check if nested property
     if (name.includes(".")) {
       const [outerKey, innerKey] = name.split(".");
       console.log(outerKey, innerKey);
@@ -47,18 +47,60 @@ const PropertyAddForm = () => {
         },
       }));
     } else {
+      //not nested
       setFields((prevFields) => ({
         ...prevFields,
         [name]: value,
       }));
     }
   };
-  const handleAmenitiesChange = () => {};
+  const handleAmenitiesChange = (e) => {
+    const { value, checked } = e.target;
+    //Clone the current array
 
-  const handleImageChange = () => {};
+    const updatedAmenities = [...fields.amenities];
+
+    if (checked) {
+      //Add value to array
+      updatedAmenities.push(value);
+    } else {
+      //Remove value from array
+      const index = updatedAmenities.indexOf(value);
+      if (index !== -1) {
+        updatedAmenities.splice(index, 1);
+      }
+    }
+    //Update state with updated array
+    setFields((prevFields) => ({
+      ...prevFields,
+      amenities: updatedAmenities,
+    }));
+  };
+
+  const handleImageChange = (e) => {
+    const { files } = e.target;
+    const updatedImages = [...fields.images];
+
+    //Add new files to the Array
+
+    for (const file of files) {
+      updatedImages.push(file);
+    }
+
+    //Update state with images
+
+    setFields((prevFields) => ({
+      ...prevFields,
+      images: updatedImages,
+    }));
+  };
   return (
     mounted && (
-      <form>
+      <form
+        action="/api/properties"
+        method="POST"
+        encType="multipart/form-data"
+      >
         <h2 className="text-3xl text-center font-semibold mb-6">
           Add Property
         </h2>
