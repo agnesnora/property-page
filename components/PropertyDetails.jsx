@@ -18,7 +18,7 @@ const PropertyDetails = ({ property }) => {
           <FaMapMarker className="fa-solid fa-location-dot text-lg text-orange-700 mr-2" />
           <p className="text-orange-700">
             {property.location.street}
-            {property.location.City}, {property.location.state}{" "}
+            {property.location.city}, {property.location.state}{" "}
             {property.location.zipcode}
           </p>
         </div>
@@ -74,14 +74,11 @@ const PropertyDetails = ({ property }) => {
             <span className="hidden sm:inline">Baths</span>
           </p>
           <p>
-            <FaRulerCombined className="fa-solid fa-ruler-combined" />
-            1,500{" "}
-            <span className="hidden sm:inline">{property.square_feet}</span>
+            <FaRulerCombined className="fa-solid fa-ruler-combined" />{" "}
+            {property.square_feet}
           </p>
         </div>
-        <p className="text-gray-500 mb-4">
-          This is a beautiful apartment located near the commons
-        </p>
+
         <p className="text-gray-500 mb-4">{property.description}</p>
       </div>
 
