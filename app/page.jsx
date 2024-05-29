@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "@/components/Hero";
 import InfoBoxes from "@/components/InfoBoxes";
 import HomeProperties from "@/components/HomeProperties";
+import FeaturedProperties from "@/components/FeaturedProperties";
 import connectDB from "@/config/database";
 console.log("hello");
 const HomePage = async () => {
@@ -10,6 +11,7 @@ const HomePage = async () => {
     <>
       <Hero />
       <InfoBoxes />
+      <FeaturedProperties />
       <HomeProperties />
     </>
   );

@@ -8,6 +8,7 @@ import { GlobalProvider } from "@/context/GlobalContext";
 
 import { SessionProvider } from "next-auth/react";
 import AuthProvider from "@/components/AuthProvider";
+import "photoswipe/dist/photoswipe.css";
 
 export const metadata = {
   title: "PropertyPulse | Find the perfect rental",

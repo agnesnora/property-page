@@ -1,13 +1,11 @@
 import Link from "next/link";
 import React from "react";
-// import properties from "@/properties.json";
-import { fetchProperties } from "@/utils/request";
-import PropertyCard from "@/components/PropertyCard";
+import properties from "@/properties.json";
+
 import PropertySearchForm from "@/components/PropertySearchForm";
+import Properties from "@/components/Properties";
 
 const PropertiesPage = async () => {
-  const properties = await fetchProperties();
-
   //Sort properties by date
   properties.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   return (
@@ -18,7 +16,8 @@ const PropertiesPage = async () => {
           <PropertySearchForm />
         </div>
       </section>
-      <section className="px-4 py-6">
+      <Properties />
+      {/* <section className="px-4 py-6">
         <div className="container-xl lg:container m-auto px-4 py-6">
           {properties.length == 0 ? (
             <p>No properties found</p>
@@ -30,7 +29,7 @@ const PropertiesPage = async () => {
             </div>
           )}
         </div>
-      </section>
+      </section> */}
     </>
   );
 };
