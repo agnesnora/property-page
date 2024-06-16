@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 import properties from "@/properties.json";
 
@@ -7,7 +6,10 @@ import Properties from "@/components/Properties";
 
 const PropertiesPage = async () => {
   //Sort properties by date
-  properties.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+  if (properties) {
+    properties.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+  }
+  // properties.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   return (
     <>
       {" "}

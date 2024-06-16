@@ -7,7 +7,7 @@ async function fetchProperties({ showFeatured = false } = {}) {
       return [];
     }
     const res = await fetch(
-      `${apiDomain}/properties${showFeatured ? "/featured" : ""}  `,
+      `${apiDomain}/properties${showFeatured ? "/featured" : ""}`,
       { cache: "no-store" }
     );
 
