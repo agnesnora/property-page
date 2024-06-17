@@ -1,6 +1,6 @@
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
 
-async function fetchProperties({ showFeatured = false } = {}) {
+async function fetchProperties({ showFeatured = false} = {}) {
   try {
     //handle the case where the domain is not available yet
     if (!apiDomain) {
