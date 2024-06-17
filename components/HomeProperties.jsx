@@ -4,7 +4,7 @@ import { fetchProperties } from '@/utils/request';
 
 const HomeProperties = async () => {
   const data = await fetchProperties();
-  console.log(data)
+  
   if (!data || !Array.isArray(data.properties)) {
     throw new Error("Properties data is not available or not in the correct format");
   }
@@ -15,7 +15,7 @@ const HomeProperties = async () => {
     // .sort(() => Math.random() - Math.random())
     // .slice(0, 3);
 
-
+console.log("recent", recentProperties)
   return (
     <>
       <section className='px-4 py-6'>
