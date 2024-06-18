@@ -45,7 +45,7 @@ const BookmarkButton = ({ property }) => {
 
   const handleClick = async () => {
     if (!userId) {
-      toast, error("you need to sign in to bookmark a property");
+      toast.error("you need to sign in to bookmark a property");
       return;
     }
     try {
